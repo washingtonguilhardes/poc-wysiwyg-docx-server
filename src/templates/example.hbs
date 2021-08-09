@@ -1,0 +1,62 @@
+<div class='page'>
+  <h1>Report</h1>
+  <p>
+    <table>
+      <tr>
+        <td rowspan='3'>
+          <img
+            src='{{asset component='img' src='mycompanylogo.png'}}'
+            width='150px'
+            height='150px'
+          />
+        </td>
+        <td>Carla e Benjamin Advocacia ME</td>
+      </tr>
+      <tr>
+        <td>32.745.546/0001-68</td>
+      </tr>
+    </table>
+  </p>
+  <p>
+    <table>
+      <tr>
+        <td>Nome: {{user.name}}</td>
+        <td>Email: {{user.email}}</td>
+        <td>Telefone: {{user.phone}}</td>
+      </tr>
+    </table>
+  </p>
+  <p>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Descricao</th>
+          <th style='text-align: center;'>Quantidade</th>
+          <th>Preço</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each products}}
+          <tr>
+            <td>#</td>
+            <td>{{this.name}}</td>
+            <td>
+              {{#if this.description}}
+                {{{this.description}}}
+              {{else}}
+                -
+              {{/if}}
+            </td>
+            <td style='text-align: center;'>{{this.qtd}}</td>
+            <td>{{this.price}}</td>
+            <td>{{sum price=this.price qtd=this.qtd}}</td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </p>
+</div>
